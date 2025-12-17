@@ -2,13 +2,10 @@ package com.quipux.spotifive.core.service;
 
 import com.quipux.spotifive.client.services.SpotifyAuthService;
 import com.quipux.spotifive.common.constants.ErrorMessages;
-import com.quipux.spotifive.common.ex.ApiException;
 import com.quipux.spotifive.common.ex.SpotiFiveException;
 import com.quipux.spotifive.common.response.SpotifyTokenResponse;
 import com.quipux.spotifive.core.components.I18NComponent;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -58,14 +55,10 @@ public class SpotifyTokenCacheService {
 
     private SpotifyTokenResponse refreshToken() {
         try {
-            System.out.println("paso por aqui 0");
             SpotifyTokenResponse tokenResponse = spotifyAuthService.getClientCredentialsToken();
-            System.out.println("paso por aqui 0.01");
             this.cachedToken = tokenResponse.getAccessToken();
-            System.out.println("paso por aqui");
             this.tokenExpiryTime = System.currentTimeMillis() +
                     ((tokenResponse.getExpiresIn() - SAFETY_MARGIN_SECONDS) * 1000);
-            System.out.println("paso por aqui 2");
 
             log.info("Token updated. Expire in: {} sec", tokenResponse.getExpiresIn());
 

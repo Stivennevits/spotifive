@@ -12,8 +12,8 @@ public class Router {
             throw new IllegalStateException("SpotifyAPI");
         }
 
-        public static final String ROOT = API + "/play-list";
-        public static final String TOKEN = "/test-token";
+        public static final String ROOT = API + "/spotify-api";
+        public static final String GENRES = "/genres";
 
     }
 

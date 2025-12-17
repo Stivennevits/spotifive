@@ -1,6 +1,6 @@
 package com.quipux.spotifive.client.services;
 
-import com.quipux.spotifive.client.SpotiFyAuthFeign;
+import com.quipux.spotifive.client.SpotifyAuthFeign;
 import com.quipux.spotifive.common.response.SpotifyTokenResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +12,7 @@ import java.util.Base64;
 @Service
 public class SpotifyAuthService {
 
-    private final SpotiFyAuthFeign spotiFyAuthFeign;
+    private final SpotifyAuthFeign spotiFyAuthFeign;
 
     @Value("${spotify.client.id}")
     private String clientId;
@@ -20,7 +20,7 @@ public class SpotifyAuthService {
     @Value("${spotify.client.secret}")
     private String clientSecret;
 
-    public SpotifyAuthService(SpotiFyAuthFeign spotiFyAuthFeign) {
+    public SpotifyAuthService(SpotifyAuthFeign spotiFyAuthFeign) {
         this.spotiFyAuthFeign = spotiFyAuthFeign;
     }
 

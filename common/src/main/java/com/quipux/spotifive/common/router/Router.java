@@ -17,5 +17,24 @@ public class Router {
 
     }
 
+    public static class SongsAPI {
+        private SongsAPI() {
+            throw new IllegalStateException("SongsAPI");
+        }
+
+        public static final String ROOT = API + "/songs";
+        public static final String PAGING = "/paging";
+
+    }
+
+    public static class PlayListAPI {
+        private PlayListAPI() {
+            throw new IllegalStateException("PlayListAPI");
+        }
+
+        public static final String ROOT = API + "/play-list";
+
+    }
+
 
 }

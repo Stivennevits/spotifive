@@ -27,12 +27,6 @@ public class SongService {
         this.genreCacheService = genreCacheService;
     }
 
-    public SongRecord getByTitleAndArtist(String title, String artist) {
-        log.info("SongService::getByTitleAndArtist({}, {})", title, artist);
-        return repository.findByTitleAndArtist(title,artist)
-                .orElseThrow(() -> new SpotiFiveException(i18NComponent.getMessage(ErrorMessages.SONG_NOT_FOUND_BY_TITLE)));
-    }
-
     public List<SongRecord> findAllSongs() {
         log.info("SongService::findAllSongs");
         return repository.findAll();

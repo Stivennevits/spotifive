@@ -22,7 +22,10 @@ public class ModulePrivilegeRecord {
     )
     @Id
     private Long id;
+    @Column(name = "module_id")
     private Long moduleId;
+    @Column(name = "privilege_id")
     private Long privilegeId;
+    @Column(name = "\"key\"")
     private String key;
 }

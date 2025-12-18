@@ -14,17 +14,17 @@ INSERT INTO USERS (username, password, email, failed_attempts, status, created_a
 ('quipix.admin', '$2a$10$CIttC0fQGaVJRM2yE88hRuH.r7jPFsK5IxWzu0rn7d0h8eNysdTGO', 'spotify@gmail.com', 0, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('user.test', '$2a$10$XWYAWbi3RUjYt/EjRu6H4OifQPEtyG85Der/2nrJvCQmSKikLZ3yS', 'Prueba123@gmail.com', 0, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) ;
 
-INSERT INTO MODULES (name, key) VALUES
+INSERT INTO MODULES (name, "key") VALUES
 ('Song', 'song'),
 ('Playlist', 'play_list');
 
-INSERT INTO PRIVILEGES (name, key) VALUES
+INSERT INTO PRIVILEGE (name, "key") VALUES
 ('Create', 'create'),
 ('Read', 'read'),
 ('Update', 'update'),
 ('Delete', 'delete');
 
-INSERT INTO MODULE_PRIVILEGES (module_id, privilege_id, key) VALUES
+INSERT INTO MODULE_PRIVILEGES (module_id, privilege_id, "key") VALUES
 (1, 1, 'create_song'),
 (1, 2, 'read_song'),
 (1, 3, 'update_song'),

@@ -1,5 +1,6 @@
 package com.quipux.spotifive.app.handler;
 
+import com.quipux.spotifive.common.ex.PermissionDeniedException;
 import com.quipux.spotifive.common.constants.ErrorMessages;
 import com.quipux.spotifive.common.ex.*;
 import com.quipux.spotifive.core.components.I18NComponent;
@@ -70,6 +71,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleUnauthorisedException(@NonNull UnauthorisedException ex) {
         log.info("Inside RestExceptionHandler::handleUnauthorisedException Error: ", ex);
         return buildResponseEntity(ex.getMessage(), UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(PermissionDeniedException.class)
+    protected ResponseEntity<Object> handlePermissionDeniedException(@NonNull PermissionDeniedException ex) {
+        log.info("Inside RestExceptionHandler::handlePermissionDeniedException Error: ", ex);
+        return buildResponseEntity(ex.getMessage(), FORBIDDEN);
     }
 
 }

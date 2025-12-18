@@ -1,5 +1,6 @@
 package com.quipux.spotifive.app.rest;
 
+import com.quipux.spotifive.app.annotation.RequirePermission;
 import com.quipux.spotifive.common.request.SongRequest;
 import com.quipux.spotifive.core.service.SongService;
 import com.quipux.spotifive.domain.model.SongRecord;
@@ -24,6 +25,7 @@ public class SongController {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
+    @RequirePermission("read_song")
     public List<SongRecord> findAllSongs() {
         log.info("SongController::findAllSongs");
         return songService.findAllSongs();
@@ -31,6 +33,7 @@ public class SongController {
 
     @GetMapping(PAGING)
     @ResponseStatus(HttpStatus.OK)
+    @RequirePermission("read_song")
     public Page<SongRecord> paging(
             @RequestParam(required = false) String search,
             @RequestParam(required = false, defaultValue = "0") int page,
@@ -41,6 +44,7 @@ public class SongController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @RequirePermission("create_song")
     public SongRecord createSong(@RequestBody SongRequest request) {
         log.info("SongController::createSong request {}", request);
         return songService.create(request);

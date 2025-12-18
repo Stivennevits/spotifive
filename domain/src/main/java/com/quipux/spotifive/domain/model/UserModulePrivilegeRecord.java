@@ -22,6 +22,8 @@ public class UserModulePrivilegeRecord {
     )
     @Id
     private Long id;
+    @Column(name = "user_id")
     private Long userId;
+    @Column(name = "module_privilege_id")
     private Long modulePrivilegeId;
 }

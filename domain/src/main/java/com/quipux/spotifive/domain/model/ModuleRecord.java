@@ -23,5 +23,6 @@ public class ModuleRecord {
     @Id
     private Long id;
     private String name;
+    @Column(name = "\"key\"")
     private String key;
 }

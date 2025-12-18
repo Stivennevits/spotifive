@@ -36,5 +36,16 @@ public class Router {
 
     }
 
+    public static class UserAPI {
+        private UserAPI() {
+            throw new IllegalStateException("UserAPI");
+        }
+
+        public static final String ROOT = API + "/user";
+        public static final String LOGIN = "/login";
+        public static final String LOGOUT = "/logout";
+
+    }
+
 
 }
